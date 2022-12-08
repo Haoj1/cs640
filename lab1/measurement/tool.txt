@@ -1,0 +1,28 @@
+h1 ping 10.0.0.4 -c 30 > Q3_3host_1-4_latency.txt & 
+h7 ping 10.0.0.10 -c 30 > Q3_3host_7-10_latency.txt & 
+h8 ping 10.0.0.9 -c 30 > Q3_3host_8-9_latency.txt 
+
+h4 java Iperfer -s -p 5000 >> throughput_1-4_Q3.txt &
+h10 java Iperfer -s -p 5000 >> throughput_7-10_Q3.txt &
+
+h1 java Iperfer -c -h 10.0.0.4 -p 5000 -t 30 > throughput_1-4_Q3.txt &
+
+h7 java Iperfer -c -h 10.0.0.10 -p 5000 -t 30 > throughput_7-10_Q3.txt &
+
+h4 java Iperfer -s -p 5000 >> 3hosts_throughput_1-4_Q3.txt &
+h9 java Iperfer -s -p 5000 >> 3hosts_throughput_8-9_Q3.txt &
+h10 java Iperfer -s -p 5000 >> 3hosts_throughput_7-10_Q3.txt &
+
+h1 java Iperfer -c -h 10.0.0.4 -p 5000 -t 30 > 3hosts_throughput_1-4_Q3.txt &
+h7 java Iperfer -c -h 10.0.0.10 -p 5000 -t 30 > 3hosts_throughput_7-10_Q3.txt &
+h8 java Iperfer -c -h 10.0.0.9 -p 5000 -t 30 > 3hosts_throughput_8-9_Q3.txt 
+
+h5 ping 10.0.0.6 -c 30 > latency_h5-h6.txt & 
+h1 ping 10.0.0.4 -c 30 > latency_h1-h4.txt
+
+h4 java Iperfer -s -p 5000 >> throughput_h1-h4.txt &
+h6 java Iperfer -s -p 5000 >> throughput_h5-h6.txt &
+
+h1 java Iperfer -c -h 10.0.0.4 -p 5000 -t 30 > throughput_h1-h4.txt &
+h5 java Iperfer -c -h 10.0.0.6 -p 5000 -t 30 > throughput_h5-h6.txt 
+
